@@ -1,0 +1,95 @@
+<html>
+    <head>
+    <title>ToDo app</title>
+    </head>
+    
+    <style>
+        table,tr,td{
+            border:2px solid black;
+            
+    
+            margin-top: 50px;
+            margin-left:300px;
+            font-size: 18;
+            
+            background-color:cornsilk;
+        }
+    </style>
+    <style>
+        .button{color:red;
+        background-color: darkgrey;}
+    </style>
+    <style>
+        td:last-child{cursor:pointer;}
+        
+    </style>
+    
+    <body style="background-image:radial-gradient(rgb(114, 11, 114),black);">
+    <p><h1 style="color:cornsilk;font-family: cursive;text-align: center;"><span style="outline:5px dashed rgb(168, 158, 168);">STUDENT'S REGISTRATION FORM</span></h1></p>
+        <div style="background-color:cornsilk;padding:20px;
+       margin-left:250px ;margin-top:80px;margin-right: 250px;border: 12px solid black; 
+       text-align: center;outline:5px dashed rgb(168, 158, 168);
+       ">
+    
+        <dt>NAME:<input type="text" id="myinput1"placeholder="Name"></dt><br>
+        <dt>REGISTER NUMBER:<input type="text" id="myinput2"placeholder="RegNo. "></dt><br>
+       <dt> MAIL ID:<input type="text"id="myinput3"placeholder="Mail id"></dt><br>
+        
+<button style=" margin-left: 150px;"onclick="myFunction()">add</button>
+
+
+        </div>
+       <table >
+            <tr>
+                <td>NAME</td>
+                <td>REGISTER NUMBER</td>
+                <td>MAIL ID</td>
+                <td>DELETE</td>
+            </tr>
+           
+         </table>
+         
+        </body>
+         <script>
+            function myDelete()
+           {var table=document.getElementsByTagName("table")[0],index;
+              {   for(var i = 1;i<table.rows.length; i++)
+                  {
+                     table.rows[i].cells[3].onclick=function()
+                     {
+                       var c=confirm("do u want to delete");
+                        if(c===true)
+                          {
+                             index=this.parentNode.rowIndex;
+                             table.deleteRow(index);
+                          }
+           
+                     }; 
+                  } 
+              }
+           }
+        
+        </script>
+    
+        
+        <script>
+      function myFunction()
+            {
+                var name=document.getElementById('myinput1').value;
+                var reg=document.getElementById('myinput2').value;
+                var mailId=document.getElementById('myinput3').value;
+                var table=document.getElementsByTagName('table')[0];
+                var row=table.insertRow(table.rows.length);
+                var cell1=row.insertCell(0);
+                var cell2=row.insertCell(1);
+                var cell3=row.insertCell(2);
+                var cell4=row.insertCell(3);
+                cell1.innerHTML=name;
+                cell2.innerHTML=reg;
+                cell3.innerHTML=mailId;
+                cell4.innerHTML="<button class=button button onclick=myDelete()>remove</button>";
+            
+           }
+        </script> 
+       
+</html>
